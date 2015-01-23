@@ -36,19 +36,4 @@ class TaskController
     rescue ArgumentError
       return "Invalid input."
   end
-
-  def self.list_outstanding
-    puts "Tasks to complete: "
-    Task.where(complete :false).each_with_index do |task, index|
-      puts "[ ] #{index + 1}. #{task.description}"
-      # puts "Completed at #{task.completion_date}"
-    end
-  end
-
-  def self.list_completed
-    puts "Tasks completed:"
-    Task.where(complete :true).each_with_index do |task, index|
-      puts "[X] #{index + 1}. #{task.description}"
-    end
-  end
 end
